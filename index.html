@@ -1,0 +1,13 @@
+<script>
+    const fpPromise = import('https://fpjscdn.net/v3/YOUR_PUBLIC_API_KEY')
+        .then(FingerprintJS => FingerprintJS.load());
+
+    fpPromise
+        .then(fp => fp.get())
+        .then(result => {
+            const visitorId = result.visitorId;
+            // Store the ID in the browser's session storage
+            sessionStorage.setItem('fpId', visitorId);
+        });
+</script>
+
